@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wolfshop/src/components/layouts/Card/my_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -16,17 +17,26 @@ class HomePage extends StatelessWidget {
             backgroundColor: Colors.green,
             bottom: TabBar(tabs: [
               Tab(
-                text: "uno",
+                text: "Tienda",
               ),
               Tab(
-                text: "dos",
+                text: "Acerca de la tienda",
               ),
               Tab(
-                text: "tres",
+                text: "Perfil",
               )
             ]),
           ),
           body: TabBarView(children: [
+            ListView.builder(
+              itemCount: 4,
+              itemBuilder: (BuildContext context, int index) {
+                return MyCard();
+              },
+            ),
+            Container(
+              child: Text("3"),
+            ),
             ListView.builder(
               itemCount: 25,
               itemBuilder: (BuildContext context, int index) {
@@ -35,12 +45,6 @@ class HomePage extends StatelessWidget {
                 );
               },
             ),
-            Center(
-              child: Text("data"),
-            ),
-            Container(
-              child: Text("3"),
-            )
           ]),
         )));
   }
